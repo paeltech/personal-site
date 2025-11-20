@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Paul Mandele | Tech & Innovation Leader",
   description:
     "Tech & Innovation Leader specialized in Product Management, Venture Building, innovation, digital transformation, Big Data & Analytics",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({

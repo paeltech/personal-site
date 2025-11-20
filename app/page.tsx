@@ -1,10 +1,14 @@
 import Link from "next/link"
-import { Sun } from "lucide-react"
 import Typewriter from "@/components/typewriter"
 import ServicesSection from "@/components/services-section"
 import ProcessSection from "@/components/process-section"
+import SelectedWorkSection from "@/components/selected-work-section"
+import BlogsSection from "@/components/blogs-section"
+import ContactSection from "@/components/contact-section"
+import { fetchMediumPosts } from "@/lib/medium"
 
-export default function Home() {
+export default async function Home() {
+  const mediumPosts = await fetchMediumPosts()
   const headlines = ["Tech & Innovation Leader.", "Innovation Consultant.", "Venture Builder.", "Product Manager."]
 
   return (
@@ -24,14 +28,14 @@ export default function Home() {
           <Link href="/process" className="text-gray-700 hover:text-black transition-colors">
             Process
           </Link>
-          <Link href="/process" className="text-gray-700 hover:text-black transition-colors">
+          <Link href="/thoughts" className="text-gray-700 hover:text-black transition-colors">
             Thoughts
           </Link>
         </nav>
 
         <div className="flex items-center gap-2">
-           <Link href="/contact" className="text-gray-700 hover:text-black transition-colors">
-            Drop me a line
+          <Link href="/contact" className="text-gray-700 hover:text-black transition-colors">
+            Let's talk
           </Link>
         </div>
       </header>
@@ -55,6 +59,9 @@ export default function Home() {
 
         <ServicesSection />
         <ProcessSection />
+        <SelectedWorkSection />
+        <BlogsSection posts={mediumPosts.slice(0, 3)} />
+        <ContactSection />
       </main>
     </div>
   )

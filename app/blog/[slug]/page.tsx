@@ -62,12 +62,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         <div
-          className="prose prose-lg prose-gray max-w-none
-            prose-headings:font-medium prose-headings:text-black
-            prose-p:text-gray-700 prose-p:leading-relaxed
-            prose-a:text-black prose-a:underline prose-a:decoration-gray-400 hover:prose-a:decoration-black
-            prose-img:rounded-lg prose-img:shadow-md
-            prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:pl-4 prose-blockquote:italic"
+          className="prose prose-lg md:prose-xl prose-gray max-w-none
+            prose-headings:font-medium prose-headings:text-black prose-headings:tracking-tight
+            prose-p:text-gray-600 prose-p:leading-relaxed
+            prose-a:text-black prose-a:underline prose-a:decoration-gray-300 hover:prose-a:decoration-black prose-a:underline-offset-4
+            prose-img:rounded-xl prose-img:shadow-sm
+            prose-blockquote:border-l-2 prose-blockquote:border-black prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-800
+            prose-strong:font-semibold prose-strong:text-black
+            prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-black prose-code:font-normal
+            [&>figure:first-child]:hidden [&>img:first-child]:hidden"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 

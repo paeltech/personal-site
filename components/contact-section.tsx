@@ -1,10 +1,11 @@
 "use client"
 
 import { ArrowUp } from "lucide-react"
-import Link from "next/link"
 import Image from "next/image"
 
 export default function ContactSection() {
+  const calendarLink = "https://calendar.app.google/xTLpKK9TiWRy7ZVY9"
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -34,12 +35,14 @@ export default function ContactSection() {
           </h2>
 
           <div className="md:absolute right-0 top-1/2 md:-translate-y-1/2">
-            <Link
-              href="/contact"
+            <a
+              href={calendarLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
             >
               Drop me a line
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -47,21 +50,33 @@ export default function ContactSection() {
           <div className="text-sm text-gray-600 mb-4 md:mb-0">© 2022 All Rights Reserved. Design & Coded with ❤️</div>
 
           <div className="flex space-x-6 mb-4 md:mb-0">
-            <Link href="#" className="text-gray-600 hover:text-black transition-colors">
-              Dribbble
-            </Link>
-            <Link href="#" className="text-gray-600 hover:text-black transition-colors">
-              Behance
-            </Link>
-            <Link href="#" className="text-gray-600 hover:text-black transition-colors">
+            <a
+              href="https://www.linkedin.com/in/paul-mandele/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-black transition-colors"
+            >
               LinkedIn
-            </Link>
-            <Link href="#" className="text-gray-600 hover:text-black transition-colors">
+            </a>
+            <a
+              href="https://www.instagram.com/paul.mandele/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-black transition-colors"
+            >
               Instagram
-            </Link>
-            <Link href="#" className="text-gray-600 hover:text-black transition-colors">
+            </a>
+            <a
+              href="https://x.com/Mandl_P"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-black transition-colors"
+            >
+              X
+            </a>
+            <a href="mailto:business@paulmandele.co" className="text-gray-600 hover:text-black transition-colors">
               Email
-            </Link>
+            </a>
           </div>
 
           <button onClick={scrollToTop} className="flex items-center text-gray-600 hover:text-black transition-colors">

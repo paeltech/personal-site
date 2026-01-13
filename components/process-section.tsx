@@ -17,30 +17,37 @@ export default function ProcessSection() {
     {
       id: "01",
       number: "01.",
-      title: "UX / Wireframing",
+      title: "Design Sprints",
       content:
-        "Here we map out the elements clearly, so you can see what elements will be built into the end-product, and have a better idea of the intended behavior end-users will have while using it.",
+        "Rapid, structured workshops that compress months of work into focused sessions. We validate ideas, solve critical business challenges, and prototype solutions in days rather than weeks—reducing risk and accelerating time-to-market.",
     },
     {
       id: "02",
       number: "02.",
-      title: "Web Design",
+      title: "Innovation Workshops",
       content:
-        "I create visually appealing designs that align with your brand identity. This includes color schemes, typography, imagery, and overall aesthetic that will resonate with your target audience.",
+        "Interactive sessions that unlock creative thinking and collaborative problem-solving within your team. We facilitate ideation, opportunity identification, and strategic alignment to drive breakthrough innovations aligned with business objectives.",
     },
     {
       id: "03",
       number: "03.",
-      title: "Web Development",
+      title: "Market Research",
       content:
-        "Transforming designs into functional websites using modern development practices. I ensure responsive layouts, optimal performance, and clean code that's easy to maintain and scale.",
+        "Deep customer insights and competitive intelligence that inform strategic decisions. We conduct user research, market analysis, and validation studies to ensure solutions meet real market needs and have product-market fit.",
     },
     {
       id: "04",
       number: "04.",
-      title: "Analytics Setup / Support",
+      title: "Innovation Strategy",
       content:
-        "Implementation of tracking tools to monitor website performance and user behavior. I provide ongoing support to help you understand the data and make informed decisions for continuous improvement.",
+        "Comprehensive roadmaps that align innovation initiatives with business goals. We develop transformation strategies, portfolio management frameworks, and execution plans that turn vision into sustainable competitive advantage.",
+    },
+    {
+      id: "05",
+      number: "05.",
+      title: "Technical Development",
+      content:
+        "Building scalable, market-ready solutions with modern technology stacks. From MVP development to production systems, we ensure technical excellence, optimal architecture, and seamless user experiences that delight customers.",
     },
   ]
 
@@ -54,11 +61,20 @@ export default function ProcessSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
           <div>
             <h2 className="text-4xl md:text-5xl font-medium mb-8 leading-tight">My way of getting things done</h2>
-            <p className="text-gray-700">
-              Fast and transparent, the path to owning a website that will represent your brand in the best of light is
-              only 4 weeks away. Standing by the Waterfall methodology, I assure a step by step completion of the whole
-              process.
-            </p>
+            <div className="text-gray-700 leading-relaxed space-y-4">
+              <p>
+                I bring a holistic approach to innovation and venture building, combining strategic thinking with
+                hands-on execution. My methodology integrates design sprints for rapid idea validation, innovation
+                workshops to align teams, comprehensive market research to ensure product-market fit, and strategic
+                innovation frameworks that drive meaningful transformation.
+              </p>
+              <p>
+                From initial concept through to scalable ventures, I orchestrate the entire journey—managing technical
+                development to build robust solutions and overseeing product management to deliver continuous value.
+                This end-to-end approach ensures your ventures are built on solid foundations and positioned for
+                sustainable growth.
+              </p>
+            </div>
           </div>
 
           <div>

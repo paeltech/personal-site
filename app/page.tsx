@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Typewriter from "@/components/typewriter"
+import AboutSection from "@/components/about-section"
 import ServicesSection from "@/components/services-section"
 import ProcessSection from "@/components/process-section"
 import SelectedWorkSection from "@/components/selected-work-section"
@@ -10,6 +11,7 @@ import { fetchMediumPosts } from "@/lib/medium"
 export default async function Home() {
   const mediumPosts = await fetchMediumPosts()
   const headlines = ["Tech & Innovation Leader.", "Innovation Consultant.", "Venture Builder.", "Product Manager."]
+  const calendarLink = "https://calendar.app.google/xTLpKK9TiWRy7ZVY9"
 
   return (
     <div className="min-h-screen bg-[#f5f5f5] text-black flex flex-col">
@@ -19,13 +21,13 @@ export default async function Home() {
         </div>
 
         <nav className="hidden md:flex space-x-8">
-          <Link href="/about" className="text-gray-700 hover:text-black transition-colors">
+          <Link href="/#about" className="text-gray-700 hover:text-black transition-colors">
             About
           </Link>
-          <Link href="/work" className="text-gray-700 hover:text-black transition-colors">
+          <Link href="/#work" className="text-gray-700 hover:text-black transition-colors">
             Work
           </Link>
-          <Link href="/process" className="text-gray-700 hover:text-black transition-colors">
+          <Link href="/#process" className="text-gray-700 hover:text-black transition-colors">
             Process
           </Link>
           <Link href="/thoughts" className="text-gray-700 hover:text-black transition-colors">
@@ -34,14 +36,20 @@ export default async function Home() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/contact" className="text-gray-700 hover:text-black transition-colors">
+          <a
+            href={calendarLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-700 hover:text-black transition-colors"
+          >
             Let's talk
-          </Link>
+          </a>
         </div>
       </header>
 
       <main className="flex flex-col">
-        <div className="container mx-auto px-6 flex-grow flex items-end pb-16 min-h-[70vh]">
+        {/* Fixed hero section with proper h-screen and removed duplicate padding classes */}
+        <div className="container mx-auto px-6 flex items-end pb-36 h-screen">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full">
             <div className="md:col-span-8">
               <h1 className="text-4xl md:text-8xl lg:text-9xl font-medium leading-[0.9] tracking-tight">
@@ -57,6 +65,7 @@ export default async function Home() {
           </div>
         </div>
 
+        <AboutSection />
         <ServicesSection />
         <ProcessSection />
         <SelectedWorkSection />

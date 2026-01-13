@@ -15,26 +15,31 @@ export default function ServicesSection() {
         <div id="services-grid" className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-8 border border-gray-200">
             <div className="text-6xl font-light text-gray-300 mb-8">01</div>
-            <h3 className="text-2xl font-medium mb-4">Design</h3>
+            <h3 className="text-2xl font-medium mb-4">Innovation Management</h3>
             <p className="text-gray-700">
-              I make web designs that engage your audience and create the user experience you want.
+              Strategic guidance to embed innovation into your organization's DNA. From ideation frameworks to execution
+              strategies, I help organizations build sustainable innovation capabilities that drive growth and
+              competitive advantage.
             </p>
           </div>
 
           <div className="p-8 border border-gray-200">
             <div className="text-6xl font-light text-gray-300 mb-8">02</div>
-            <h3 className="text-2xl font-medium mb-4">Development</h3>
+            <h3 className="text-2xl font-medium mb-4">Venture Building</h3>
             <p className="text-gray-700">
-              Bringing visuals to life through developing highly functional web solutions.
+              End-to-end venture creation from concept to market-ready business. I guide organizations through
+              validation, product development, and go-to-market strategies to launch successful new ventures that create
+              value and capture market opportunities.
             </p>
           </div>
 
           <div className="p-8 border border-gray-200">
             <div className="text-6xl font-light text-gray-300 mb-8">03</div>
-            <h3 className="text-2xl font-medium mb-4">The Full Package</h3>
+            <h3 className="text-2xl font-medium mb-4">Digital Transformation</h3>
             <p className="text-gray-700">
-              Get the best of both worlds for your website, capture your brand identity and get fully functional
-              features.
+              Transform your organization for the digital age. I design and implement comprehensive digital strategies
+              that modernize operations, enhance customer experiences, and unlock new business models through technology
+              and innovation.
             </p>
           </div>
         </div>

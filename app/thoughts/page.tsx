@@ -1,8 +1,7 @@
-"use client"
-
 import Link from "next/link"
 import BlogsSection from "@/components/blogs-section"
 import { fetchMediumPosts } from "@/lib/medium"
+import BackToTop from "@/components/back-to-top"
 
 export default async function ThoughtsPage() {
   const mediumPosts = await fetchMediumPosts()
@@ -91,14 +90,10 @@ export default async function ThoughtsPage() {
             </a>
           </div>
 
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-gray-600 hover:text-black transition-colors"
-          >
-            Back to top ↑
-          </button>
         </div>
       </footer>
+
+      <BackToTop />
     </div>
   )
 }

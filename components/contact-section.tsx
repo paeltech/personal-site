@@ -1,17 +1,8 @@
-"use client"
-
-import { ArrowUp } from "lucide-react"
 import Image from "next/image"
+import BackToTop from "@/components/back-to-top"
 
 export default function ContactSection() {
   const calendarLink = "https://calendar.app.google/xTLpKK9TiWRy7ZVY9"
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
 
   return (
     <section className="py-20 bg-[#f5f5f5]">
@@ -47,7 +38,7 @@ export default function ContactSection() {
         </div>
 
         <footer className="flex flex-col md:flex-row justify-between items-center border-t border-gray-200 pt-8">
-          <div className="text-sm text-gray-600 mb-4 md:mb-0">© 2022 All Rights Reserved. Design & Coded with ❤️</div>
+          <div className="text-sm text-gray-600 mb-4 md:mb-0">© 2025 Paul Mandele. All Rights Reserved.</div>
 
           <div className="flex space-x-6 mb-4 md:mb-0">
             <a
@@ -78,12 +69,10 @@ export default function ContactSection() {
               Email
             </a>
           </div>
-
-          <button onClick={scrollToTop} className="flex items-center text-gray-600 hover:text-black transition-colors">
-            Back to top <ArrowUp className="ml-1 w-4 h-4" />
-          </button>
         </footer>
       </div>
+
+      <BackToTop />
     </section>
   )
 }

@@ -15,8 +15,7 @@ export interface MediumPost {
 export async function fetchMediumPosts(username: string = MEDIUM_USERNAME): Promise<MediumPost[]> {
   try {
     const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${username}`, {
-      next: { revalidate: 3600 },
-      cache: 'no-store'
+      next: { revalidate: 3600 }
     })
 
     const data = await response.json()

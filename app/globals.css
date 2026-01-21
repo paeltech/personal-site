@@ -119,8 +119,16 @@
     border-color: var(--border);
     outline-color: var(--ring);
   }
+  /* Added smooth scrolling behavior */
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--background);
     color: var(--foreground);
+  }
+  /* Add scroll margin for anchor links */
+  section[id] {
+    scroll-margin-top: 2rem;
   }
 }

@@ -41,7 +41,7 @@ export default function SelectedWorkSection() {
   ]
 
   return (
-    <section className="py-20 bg-[#f5f5f5]">
+    <section id="work" className="py-20 bg-[#f5f5f5]">
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center mb-8 border-b border-gray-200 pb-4">
           <h2 className="text-4xl font-medium">

@@ -15,20 +15,17 @@ export interface MediumPost {
 export async function fetchMediumPosts(username: string = MEDIUM_USERNAME): Promise<MediumPost[]> {
   try {
     const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${username}`, {
-      next: { revalidate: 3600 }, // Cache for 1 hour
+      next: { revalidate: 3600 },
+      cache: 'no-store'
     })
-
-    if (!response.ok) {
-      const errorBody = await response.text()
-      console.error(`Medium API Error (${response.status}):`, errorBody)
-      console.log("[v0] Falling back to mock data due to API error")
-      return getMockPosts()
-    }
 
     const data = await response.json()
 
-    if (data.status === "error") {
-      console.error("Medium RSS2JSON Error:", data.message)
+    if (!response.ok || data.status === "error") {
+      return getMockPosts()
+    }
+
+    if (!data.items || data.items.length === 0) {
       return getMockPosts()
     }
 

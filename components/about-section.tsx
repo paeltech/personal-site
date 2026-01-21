@@ -2,7 +2,7 @@
 
 export default function AboutSection() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section id="about" className="py-24 bg-white relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-black rounded-full blur-3xl" />
@@ -22,9 +22,12 @@ export default function AboutSection() {
                 from co-founding startups to leading innovation initiatives at scale across East Africa.
               </p>
 
-
               <p>
-                From establishing and managing innovation support organizations like hubs, acccelerators, venture studios to working on policies level, working with startups, corporates, governments and DFIs to serving on the Tanzania National ICT Skills Council, I've dedicated my career to building ecosystems where technology and innovation thrive. I believe in the power of design thinking, data-driven strategies, and relentless execution.
+                From establishing and managing innovation support organizations like hubs, acccelerators, venture
+                studios to working on policies level, working with startups, corporates, governments and DFIs to serving
+                on the Tanzania National ICT Skills Council, I've dedicated my career to building ecosystems where
+                technology and innovation thrive. I believe in the power of design thinking, data-driven strategies, and
+                relentless execution.
               </p>
 
               <p className="text-black font-medium text-xl mt-8">

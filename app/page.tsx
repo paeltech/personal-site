@@ -21,15 +21,15 @@ export default async function Home() {
         </div>
 
         <nav className="hidden md:flex space-x-8">
-          <Link href="/#about" className="text-gray-700 hover:text-black transition-colors">
+          <a href="#about" className="text-gray-700 hover:text-black transition-colors">
             About
-          </Link>
-          <Link href="/#work" className="text-gray-700 hover:text-black transition-colors">
+          </a>
+          <a href="#work" className="text-gray-700 hover:text-black transition-colors">
             Work
-          </Link>
-          <Link href="/#process" className="text-gray-700 hover:text-black transition-colors">
+          </a>
+          <a href="#process" className="text-gray-700 hover:text-black transition-colors">
             Process
-          </Link>
+          </a>
           <Link href="/thoughts" className="text-gray-700 hover:text-black transition-colors">
             Thoughts
           </Link>
@@ -58,7 +58,7 @@ export default async function Home() {
             </div>
             <div className="md:col-span-4 md:self-end">
               <p className="text-gray-700 text-sm md:text-base mt-4 md:mt-0 md:mb-4">
-                Specialized in Product Management, Venture Building, innovation, digital transformation, Big Data &
+                Specialized in Product Management, Venture Building, Innovation Planning & Management, digital transformation, Big Data &
                 Analytics.
               </p>
             </div>

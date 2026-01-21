@@ -56,7 +56,7 @@ export default function ProcessSection() {
   }
 
   return (
-    <section className="py-20 bg-[#f5f5f5]">
+    <section id="process" className="py-20 bg-[#f5f5f5]">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
           <div>

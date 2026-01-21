@@ -45,9 +45,9 @@ export default function SelectedWorkSection() {
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center mb-8 border-b border-gray-200 pb-4">
           <h2 className="text-4xl font-medium">
-            Selected Work<sup className="text-lg ml-1">(3)</sup>
+            Selected Experience<sup className="text-lg ml-1">(3)</sup>
           </h2>
-          <p className="text-gray-700">A piece from my selection of favorites</p>
+          <p className="text-gray-700">A snapshot of my experiences</p>
         </div>
 
         <div className="space-y-8">

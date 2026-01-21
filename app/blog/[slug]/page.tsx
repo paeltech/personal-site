@@ -26,17 +26,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         <nav className="hidden md:flex space-x-8">
-          <Link href="/" className="text-gray-700 hover:text-black transition-colors">
-            Home
+          <Link href="/#about" className="text-gray-700 hover:text-black transition-colors">
+            About
           </Link>
-          <Link href="/#services" className="text-gray-700 hover:text-black transition-colors">
-            Services
+          <Link href="/#work" className="text-gray-700 hover:text-black transition-colors">
+            Work
           </Link>
           <Link href="/#process" className="text-gray-700 hover:text-black transition-colors">
             Process
           </Link>
-          <Link href="/#work" className="text-gray-700 hover:text-black transition-colors">
-            Work
+          <Link href="/thoughts" className="text-gray-700 hover:text-black transition-colors">
+            Thoughts
           </Link>
         </nav>
 
@@ -90,34 +90,42 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <article className="container mx-auto px-6 max-w-4xl pb-24">
         <div
           className="prose prose-lg md:prose-xl max-w-none
-            prose-headings:font-bold prose-headings:text-black prose-headings:tracking-tight
-            prose-h1:text-5xl prose-h1:leading-tight prose-h1:mt-16 prose-h1:mb-8
-            prose-h2:text-4xl prose-h2:leading-snug prose-h2:mt-14 prose-h2:mb-6
-            prose-h3:text-3xl prose-h3:leading-snug prose-h3:mt-12 prose-h3:mb-5
-            prose-h4:text-2xl prose-h4:mt-10 prose-h4:mb-4
-            prose-h5:text-xl prose-h5:mt-8 prose-h5:mb-3
-            prose-h6:text-lg prose-h6:mt-6 prose-h6:mb-3
-            prose-p:text-gray-700 prose-p:leading-relaxed prose-p:text-lg prose-p:mt-2 prose-p:mb-4
+            prose-headings:text-black prose-headings:tracking-tight
+            prose-h1:text-5xl prose-h1:font-extrabold prose-h1:leading-tight prose-h1:mt-20 prose-h1:mb-10
+            prose-h2:text-4xl prose-h2:font-bold prose-h2:leading-snug prose-h2:mt-16 prose-h2:mb-8
+            prose-h3:text-3xl prose-h3:font-bold prose-h3:leading-snug prose-h3:mt-14 prose-h3:mb-6
+            prose-h4:text-2xl prose-h4:font-semibold prose-h4:mt-12 prose-h4:mb-5
+            prose-h5:text-xl prose-h5:font-semibold prose-h5:mt-10 prose-h5:mb-4
+            prose-h6:text-lg prose-h6:font-semibold prose-h6:mt-8 prose-h6:mb-4
+            prose-p:text-gray-700 prose-p:leading-[1.9] prose-p:text-lg prose-p:mt-0 prose-p:mb-8
             prose-a:text-black prose-a:font-medium prose-a:underline prose-a:decoration-gray-300 hover:prose-a:decoration-black prose-a:underline-offset-4 prose-a:transition-colors
-            prose-img:rounded-xl prose-img:my-8 prose-img:shadow-md prose-img:w-full prose-img:h-auto
-            prose-figure:my-8
-            prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-gray-500 prose-figcaption:mt-3 prose-figcaption:italic
-            prose-blockquote:border-l-4 prose-blockquote:border-black prose-blockquote:pl-6 prose-blockquote:py-4 prose-blockquote:italic prose-blockquote:text-gray-700 prose-blockquote:text-lg prose-blockquote:leading-relaxed prose-blockquote:my-6
+            prose-img:rounded-xl prose-img:mt-10 prose-img:mb-10 prose-img:shadow-md prose-img:w-full prose-img:h-auto
+            prose-figure:mt-12 prose-figure:mb-12
+            prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-gray-500 prose-figcaption:mt-4 prose-figcaption:mb-12 prose-figcaption:italic
+            prose-blockquote:border-l-4 prose-blockquote:border-black prose-blockquote:pl-6 prose-blockquote:py-4 prose-blockquote:italic prose-blockquote:text-gray-700 prose-blockquote:text-lg prose-blockquote:leading-relaxed prose-blockquote:my-10
             prose-strong:font-semibold prose-strong:text-black
             prose-em:italic prose-em:text-gray-700
             prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-black prose-code:font-mono prose-code:text-sm prose-code:before:content-[''] prose-code:after:content-['']
-            prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-xl prose-pre:p-6 prose-pre:my-8 prose-pre:overflow-x-auto
-            prose-ul:my-6 prose-ul:pl-8 prose-ul:list-disc prose-ul:space-y-3
-            prose-ol:my-6 prose-ol:pl-8 prose-ol:list-decimal prose-ol:space-y-3
-            prose-li:text-gray-700 prose-li:leading-relaxed prose-li:text-lg prose-li:mt-2 prose-li:mb-2
+            prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-xl prose-pre:p-6 prose-pre:my-10 prose-pre:overflow-x-auto
+            prose-ul:my-8 prose-ul:pl-8 prose-ul:list-disc prose-ul:space-y-4
+            prose-ol:my-8 prose-ol:pl-8 prose-ol:list-decimal prose-ol:space-y-4
+            prose-li:text-gray-700 prose-li:leading-relaxed prose-li:text-lg prose-li:mt-3 prose-li:mb-3
             prose-li:marker:text-black prose-li:marker:font-bold
-            prose-hr:border-gray-200 prose-hr:my-12
+            prose-hr:border-gray-200 prose-hr:my-16
             [&>figure:first-child]:hidden [&>img:first-child]:hidden
-            [&_ul]:my-6 [&_ul]:pl-8 [&_ul]:list-disc [&_ul]:space-y-3
-            [&_ol]:my-6 [&_ol]:pl-8 [&_ol]:list-decimal [&_ol]:space-y-3
-            [&_li]:mt-2 [&_li]:mb-2 [&_li]:text-gray-700 [&_li]:leading-relaxed
+            [&_h1]:font-extrabold [&_h2]:font-bold [&_h3]:font-bold [&_h4]:font-semibold [&_h5]:font-semibold [&_h6]:font-semibold
+            [&_p+p]:mt-8
+            [&_p+h2]:mt-16 [&_p+h3]:mt-14 [&_p+h4]:mt-12
+            [&_img+p]:mt-10 [&_p+img]:mt-10
+            [&_figure+p]:mt-12 [&_p+figure]:mt-12
+            [&_figcaption+p]:mt-12
+            [&_ul]:my-8 [&_ul]:pl-8 [&_ul]:list-disc [&_ul]:space-y-4
+            [&_ol]:my-8 [&_ol]:pl-8 [&_ol]:list-decimal [&_ol]:space-y-4
+            [&_li]:mt-3 [&_li]:mb-3 [&_li]:text-gray-700 [&_li]:leading-relaxed
             [&_ul>li]:marker:text-black [&_ul>li]:marker:font-bold
-            [&_ol>li]:marker:text-black [&_ol>li]:marker:font-semibold"
+            [&_ol>li]:marker:text-black [&_ol>li]:marker:font-semibold
+            [&_figcaption]:text-center [&_figcaption]:text-sm [&_figcaption]:text-gray-500 [&_figcaption]:mt-4 [&_figcaption]:mb-12 [&_figcaption]:italic
+            [&_img]:mt-10 [&_img]:mb-10"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 

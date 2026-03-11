@@ -58,8 +58,7 @@ export default async function Home() {
             </div>
             <div className="md:col-span-4 md:self-end">
               <p className="text-gray-700 text-sm md:text-base mt-4 md:mt-0 md:mb-4">
-                Specialized in Product Management, Venture Building, Innovation Planning & Management, digital transformation, Big Data &
-                Analytics.
+                10+ years building ventures and leading innovation across East Africa, from startup to government scale.
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@ import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Sora } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 
 const sora = Sora({ subsets: ["latin"] })
 
@@ -19,7 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={sora.className}>{children}</body>
+      <body className={sora.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }

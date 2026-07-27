@@ -7,8 +7,11 @@ import { useEffect, useRef, useState } from "react"
  * used for the homepage stat strip ($100K+, $80K, 57%, 40+). Renders the
  * final value immediately when the browser prefers reduced motion.
  */
-export function useCountUp(target: number, { duration = 1100 }: { duration?: number } = {}) {
-  const ref = useRef<HTMLElement>(null)
+export function useCountUp<T extends HTMLElement = HTMLDivElement>(
+  target: number,
+  { duration = 1100 }: { duration?: number } = {},
+) {
+  const ref = useRef<T>(null)
   const [value, setValue] = useState(0)
 
   useEffect(() => {

@@ -1,9 +1,9 @@
-import type { ComponentPropsWithoutRef, ElementType } from "react"
+import type { ComponentPropsWithRef, ElementType } from "react"
 import { cn } from "@/lib/utils"
 
 type ContainerProps<T extends ElementType> = {
   as?: T
-} & ComponentPropsWithoutRef<T>
+} & ComponentPropsWithRef<T>
 
 /** Page-width wrapper matching the Paper design's 130px side margins on desktop. */
 export function Container<T extends ElementType = "div">({

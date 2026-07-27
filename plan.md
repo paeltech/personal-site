@@ -124,10 +124,16 @@ Each PR = its own branch off `main` + a Vercel preview; merge on approval.
 - Fixed in review: `tailwind-merge` didn't know our custom `@theme` tokens, so `text-paper` (color) and `text-small` (font size) were silently colliding — `lib/utils.ts` now extends `tailwind-merge`'s theme scale with our token names
 - Not done here (by design, deferred to later PRs): homepage/`layout.tsx` not yet wired to `SiteHeader`/`SiteFooter` (PR2, to avoid a duplicate nav on the still-old homepage); `title`/`description` in `layout.tsx` are untouched old copy (PR7); no mobile menu yet (PR7); `next lint` has never been configured on this repo (pre-existing, out of scope)
 
-### PR2 · Homepage (`app/page.tsx`)
-- [ ] Hero → proof strip → About + portrait + **stat count-up** → How I Work (offers + rolling-horizon process) → thesis pull-quote band → Track Record → book teaser → latest Thoughts → closing CTA
-- [ ] Retire old components: `about/services/process/selected-work/contact/blogs-section`, `typewriter`, `animated-arrow`
-- [ ] Section anchors `#about`, `#how-i-work`
+### PR2 · Homepage (`app/page.tsx`) — ✅ done, branch `pr2/homepage`
+- [x] Hero → proof strip → About + portrait + **stat count-up** → How I Work (offers + rolling-horizon process) → thesis pull-quote band → Track Record → book teaser → latest Thoughts → closing CTA — built as `components/home/*` (one file per section)
+- [x] Retire old components: `about/services/process/selected-work/contact-section`, `typewriter`, `animated-arrow` — confirmed via dependency grep before deleting each
+- [x] Section anchors `#about`, `#how-i-work`
+- Deviation from the original checklist wording: **`blogs-section.tsx` was NOT retired here.** `/thoughts` (untouched until PR3) still imports it, along with `back-to-top.tsx` and `lib/medium.tsx`'s `fetchMediumPosts`. Deleting it now would have broken `/thoughts`. PR3 retires it when `/thoughts` is rebuilt.
+- `SiteHeader`/`SiteFooter` are rendered directly in `app/page.tsx`, not hoisted into `app/layout.tsx` yet — `/thoughts` and `/blog/[slug]` still render their own old inline header/footer, so a root-layout header/footer would have doubled up on those two routes. PR3 hoists both into the layout once every route wants them (see `TODO(PR3)` comment in `app/page.tsx`).
+- `lib/constants.ts`: replaced the placeholder `SOCIAL_LINKS`/email from PR1 with the real values pulled from the old `/thoughts` footer (LinkedIn, X, `business@paulmandele.co`); Instagram dropped on purpose per the positioning brief. Added `CALENDAR_LINK` (the real Google Calendar link the old site used) for `/contact` to consume in PR6.
+- Latest Thoughts pulls 3 live Medium posts via the existing `fetchMediumPosts()`; pillar tag is a lightweight fallback (`categories[0]`, else "Field Notes") — the real Constraint/Trust/Operator mapping is PR3 scope, not duplicated here.
+- Fixed in review: `Container` couldn't accept a `ref` (typed with `ComponentPropsWithoutRef`, and not forwarding it) even though several sections need one for `useReveal`/`useCountUp` — widened to `ComponentPropsWithRef` and confirmed React 19 forwards it to the underlying element with no `forwardRef` wrapper needed. Also made `useCountUp` generic over the element type (matching `useReveal`) instead of a hardcoded `HTMLElement` cast at each call site.
+- Verified: `tsc --noEmit` clean, `pnpm build` succeeds, and the full page was checked end-to-end — every section screenshot-verified pixel-correct at desktop width (1440px) from the hero through Track Record; Book Teaser/Latest Thoughts/Footer content and every link verified via full-page-text and accessibility-tree checks (all hrefs correct) after the Browser pane's screenshot capture became unreliable at deep scroll positions late in the session (environment issue, unrelated to the code — confirmed via computed styles and `elementFromPoint` hit-testing that the DOM/CSS was correct regardless). Footer itself is the same component already pixel-verified in PR1.
 
 ### PR3 · Thoughts + Article
 - [ ] `/thoughts`: header, **pillar filter tabs** (client), featured post, list

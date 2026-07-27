@@ -27,10 +27,14 @@ export const FOOTER_LINKS = [
   { label: "Thoughts", href: "/thoughts" },
 ] as const
 
-// TODO: placeholder handles/domain — confirm real LinkedIn/X URLs and the
-// hello@ inbox before PR7 ships (see plan.md §10, "Assets needed from Paul").
+// Pulled from the live site's old /thoughts footer (app/thoughts/page.tsx
+// pre-rebuild). Instagram is dropped on purpose — the positioning brief
+// flags it as not serving the corporate/institutional buyer this site
+// is now built for.
 export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/paulmandele" },
-  { label: "Email", href: "mailto:hello@paulmandele.co" },
-  { label: "X", href: "https://x.com/paulmandele" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/paul-mandele/" },
+  { label: "Email", href: "mailto:business@paulmandele.co" },
+  { label: "X", href: "https://x.com/Mandl_P" },
 ] as const
+
+export const CALENDAR_LINK = "https://calendar.app.google/xTLpKK9TiWRy7ZVY9"

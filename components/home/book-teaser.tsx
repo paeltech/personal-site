@@ -4,7 +4,7 @@ import { Container } from "@/components/primitives/container"
 import { Eyebrow } from "@/components/primitives/eyebrow"
 import { Button } from "@/components/primitives/button"
 import { ArrowLink } from "@/components/primitives/arrow-link"
-import { BOOK_HREF } from "@/lib/constants"
+import { BOOK_HREF, BOOK_CHAPTER_HREF } from "@/lib/constants"
 import { useReveal } from "@/hooks/use-reveal"
 
 export function BookTeaser() {
@@ -37,7 +37,7 @@ export function BookTeaser() {
           </p>
           <div className="mt-1.5 flex flex-wrap items-center gap-5">
             <Button href={BOOK_HREF}>Get the book</Button>
-            <ArrowLink href={BOOK_HREF}>Read a chapter</ArrowLink>
+            <ArrowLink href={BOOK_CHAPTER_HREF}>Read a chapter</ArrowLink>
           </div>
         </div>
       </Container>

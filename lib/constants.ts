@@ -16,6 +16,10 @@ export const NAV_CTA = { label: "Book a call", href: "/contact" } as const
  * "Read the book" / "Get the book" CTAs across the site.
  */
 export const BOOK_HREF = "/book"
+/** For CTAs that specifically mean "jump to the free chapter reader", not just the book page. */
+export const BOOK_CHAPTER_HREF = "/book#read"
+/** For CTAs that specifically mean "jump to pricing/pre-order", not just the book page. */
+export const BOOK_PRICING_HREF = "/book#get-your-copy"
 export const CONTACT_HREF = "/contact"
 export const SPEAKING_HREF = "/speaking"
 

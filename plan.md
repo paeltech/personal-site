@@ -110,14 +110,19 @@ Small hooks + CSS, **all gated by `prefers-reduced-motion`**:
 
 Each PR = its own branch off `main` + a Vercel preview; merge on approval.
 
-### PR1 · Foundation
-- [ ] Neutral tokens in `globals.css` `@theme`; map shadcn CSS vars (`--background`, `--foreground`, `--muted-foreground`, `--border`, `--primary`, …)
-- [ ] Reconcile the Tailwind v4 vs `tailwind.config.ts` leftover
-- [ ] Remove `next-themes` + `theme-provider`; force light
-- [ ] Wire Sora weights 300–700
-- [ ] Primitives: `Button` (primary-ink / invert / ghost), `Eyebrow`, `Container`, `SectionHeading`, `ArrowLink`, `Rule`
-- [ ] Interaction hooks: `useReveal`, `useCountUp`, `useReadingProgress` + base motion CSS
-- [ ] `SiteHeader` (new nav) + `SiteFooter` (with secondary sitemap)
+### PR1 · Foundation — ✅ done, branch `pr1/foundation`
+- [x] Neutral tokens in `globals.css` `@theme`; map shadcn CSS vars (`--background`, `--foreground`, `--muted-foreground`, `--border`, `--primary`, …)
+- [x] Reconcile the Tailwind v4 vs `tailwind.config.ts` leftover — deleted `tailwind.config.ts` and the orphaned `styles/globals.css` (both unreferenced; v4 is CSS-first via `@theme`)
+- [x] Remove `next-themes` + `theme-provider`; force light — `theme-provider.tsx` was already dead code (never imported); dependency dropped from `package.json`
+- [x] Wire Sora weights 300–700 — exposed as `--font-sora` CSS var via `next/font`, consumed through `--font-sans`
+- [x] Primitives: `Button` (primary-ink / invert / ghost), `Eyebrow`, `Container`, `SectionHeading`, `ArrowLink`, `Rule` — in `components/primitives/`
+- [x] Interaction hooks: `useReveal`, `useCountUp`, `useReadingProgress` + base motion CSS — in `hooks/`, motion CSS in `globals.css` `@layer components`
+- [x] `SiteHeader` (new nav) + `SiteFooter` (with secondary sitemap)
+- [x] `lib/constants.ts` — nav/footer links, `NAV_CTA` ("Book a call" → `/contact`), `BOOK_HREF`/`SPEAKING_HREF` (intentionally off-nav)
+- [x] `app/design-system` — internal, `noindex` preview route for reviewing tokens/primitives before PR2 rewires the real pages (not linked from nav; remove once all pages ship)
+- Verified: `tsc --noEmit` clean, `pnpm build` succeeds (`/`, `/thoughts`, `/blog/[slug]`, `/design-system` all prerender), visually reviewed every primitive + both header/footer in a live dev server
+- Fixed in review: `tailwind-merge` didn't know our custom `@theme` tokens, so `text-paper` (color) and `text-small` (font size) were silently colliding — `lib/utils.ts` now extends `tailwind-merge`'s theme scale with our token names
+- Not done here (by design, deferred to later PRs): homepage/`layout.tsx` not yet wired to `SiteHeader`/`SiteFooter` (PR2, to avoid a duplicate nav on the still-old homepage); `title`/`description` in `layout.tsx` are untouched old copy (PR7); no mobile menu yet (PR7); `next lint` has never been configured on this repo (pre-existing, out of scope)
 
 ### PR2 · Homepage (`app/page.tsx`)
 - [ ] Hero → proof strip → About + portrait + **stat count-up** → How I Work (offers + rolling-horizon process) → thesis pull-quote band → Track Record → book teaser → latest Thoughts → closing CTA

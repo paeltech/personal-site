@@ -172,13 +172,30 @@
   .prose-article > * + * {
     margin-top: 1.5rem;
   }
-  .prose-article h2 {
+  .prose-article h1,
+  .prose-article h2,
+  .prose-article h3,
+  .prose-article h4 {
     color: var(--color-ink);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+  }
+  .prose-article h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  .prose-article h2 {
     font-size: 1.75rem;
     line-height: 2.25rem;
-    letter-spacing: -0.02em;
-    font-weight: 600;
-    margin-top: 2.5rem;
+  }
+  .prose-article h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .prose-article h4 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
   .prose-article blockquote {
     font-size: 1.75rem;
@@ -195,8 +212,36 @@
     text-decoration: underline;
     text-underline-offset: 3px;
   }
+  .prose-article ul,
+  .prose-article ol {
+    padding-left: 1.5rem;
+  }
+  .prose-article ul {
+    list-style: disc;
+  }
+  .prose-article ol {
+    list-style: decimal;
+  }
+  .prose-article li + li {
+    margin-top: 0.5rem;
+  }
   .prose-article img {
     border-radius: 10px;
+    width: 100%;
+  }
+  .prose-article figcaption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-muted-foreground);
+  }
+  /* Medium's first image duplicates the hero image we already render
+     above the article body — hide it here instead of at the fetch layer,
+     so the raw content stays intact for any other future consumer. */
+  .prose-article > figure:first-child,
+  .prose-article > img:first-child,
+  .prose-article > p:first-child > img:only-child {
+    display: none;
   }
 }
 

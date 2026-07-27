@@ -3,6 +3,8 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Sora } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 
 // TODO(PR7): title/description are the old keyword-list copy the
 // redesign brief flags for removal. Rewritten with the new positioning
@@ -27,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={sora.variable}>
       <body className="font-sans">
+        <SiteHeader />
         {children}
+        <SiteFooter />
         <Analytics />
       </body>
     </html>

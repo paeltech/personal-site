@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
 import { Container } from "@/components/primitives/container"
 import { Eyebrow } from "@/components/primitives/eyebrow"
 import { SectionHeading } from "@/components/primitives/section-heading"
@@ -29,10 +27,8 @@ const swatches = [
 
 export default function DesignSystemPage() {
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <Container className="flex flex-col gap-16 py-20">
+    <main>
+      <Container className="flex flex-col gap-16 py-20">
           <div className="flex flex-col gap-4">
             <Eyebrow>Foundation — PR1</Eyebrow>
             <h1 className="text-display font-semibold text-ink">Design system</h1>
@@ -108,8 +104,6 @@ export default function DesignSystemPage() {
             </div>
           </section>
         </Container>
-      </main>
-      <SiteFooter />
-    </>
+    </main>
   )
 }

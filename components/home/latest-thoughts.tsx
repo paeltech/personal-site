@@ -6,19 +6,7 @@ import { Eyebrow } from "@/components/primitives/eyebrow"
 import { SectionHeading } from "@/components/primitives/section-heading"
 import { ArrowLink } from "@/components/primitives/arrow-link"
 import { useReveal } from "@/hooks/use-reveal"
-import type { MediumPost } from "@/lib/medium"
-
-// A proper Constraint/Trust/Operator pillar map lands in PR3 alongside the
-// rebuilt /thoughts index. For now this teaser just surfaces the post's own
-// first Medium category, with a plain fallback label.
-function readTimeFor(post: MediumPost) {
-  const words = (post.content || post.description || "").replace(/<[^>]*>/g, "").split(/\s+/).filter(Boolean).length
-  return Math.max(1, Math.round(words / 200))
-}
-
-function formatDate(pubDate: string) {
-  return new Date(pubDate).toLocaleDateString("en-US", { month: "short", year: "numeric" })
-}
+import { estimateReadTime, formatDate, pillarForPost, pillarLabel, type MediumPost } from "@/lib/medium"
 
 export function LatestThoughts({ posts }: { posts: MediumPost[] }) {
   const headRef = useReveal<HTMLDivElement>()
@@ -45,14 +33,14 @@ export function LatestThoughts({ posts }: { posts: MediumPost[] }) {
               className="group flex flex-col gap-5 border-t-2 border-ink pt-6 transition-transform duration-300 ease-out hover:-translate-y-1"
             >
               <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors group-hover:text-ink">
-                {post.categories[0] ?? "Field Notes"}
+                {pillarLabel(pillarForPost(post))}
               </span>
               <h3 className="text-h3 font-semibold text-ink">{post.title}</h3>
               <p className="line-clamp-3 text-small leading-[25px] text-muted-foreground">
                 {post.description}
               </p>
               <span className="text-[14px] font-medium text-muted-foreground">
-                {formatDate(post.pubDate)} &middot; {readTimeFor(post)} min read
+                {formatDate(post.pubDate)} &middot; {estimateReadTime(post)} min read
               </span>
             </Link>
           ))}

@@ -95,8 +95,100 @@ function extractImageFromContent(content: string): string {
   return imgMatch ? imgMatch[1] : "/blog-post-concept.png"
 }
 
-export function formatDate(dateString: string): string {
+/**
+ * Short ("Jun 2026") for index/teaser cards, long ("June 12, 2026") for the
+ * article header. Replaces the previous `formatDate`, which only ever
+ * returned a two-digit year and had no callers left in the app.
+ */
+export function formatDate(dateString: string, style: "short" | "long" = "short"): string {
   const date = new Date(dateString)
-  const year = date.getFullYear().toString().slice(-2)
-  return year
+  return date.toLocaleDateString(
+    "en-US",
+    style === "long" ? { month: "long", day: "numeric", year: "numeric" } : { month: "short", year: "numeric" },
+  )
+}
+
+/** ~200wpm estimate — Medium's RSS feed doesn't provide a read time. */
+export function estimateReadTime(post: Pick<MediumPost, "content" | "description">): number {
+  const words = (post.content || post.description || "")
+    .replace(/<[^>]*>/g, "")
+    .split(/\s+/)
+    .filter(Boolean).length
+  return Math.max(1, Math.round(words / 200))
+}
+
+// --- Content pillars ---------------------------------------------------
+//
+// The three pillars are the forward-looking content strategy from the
+// positioning brief, not a taxonomy Medium knows about. Real posts get
+// bucketed by a best-effort keyword match against their existing Medium
+// categories; anything that doesn't match falls back to "operator", the
+// most general of the three (field experience, written up after the
+// fact). This is a heuristic, not a guarantee — expect some legacy posts
+// to sit in the "wrong" pillar until they're manually retagged.
+
+export type Pillar = "constraint" | "trust" | "operator"
+
+export const PILLARS: { slug: Pillar; label: string }[] = [
+  { slug: "constraint", label: "Constraint as Design Input" },
+  { slug: "trust", label: "Trust as Infrastructure" },
+  { slug: "operator", label: "Operator-to-Advisor Proof" },
+]
+
+const PILLAR_KEYWORDS: Record<Pillar, string[]> = {
+  constraint: [
+    "design",
+    "product",
+    "ux",
+    "ui",
+    "ai",
+    "technology",
+    "tech",
+    "data",
+    "infrastructure",
+    "connectivity",
+    "battery",
+    "offline",
+    "mobile",
+  ],
+  trust: [
+    "trust",
+    "payment",
+    "finance",
+    "fintech",
+    "governance",
+    "policy",
+    "economy",
+    "economic",
+    "regulation",
+    "transformation",
+  ],
+  operator: [
+    "startup",
+    "startups",
+    "accelerator",
+    "venture",
+    "founder",
+    "corporate",
+    "innovation",
+    "hub",
+    "ecosystem",
+    "field notes",
+    "field-notes",
+    "african-startup",
+  ],
+}
+
+export function pillarForPost(post: Pick<MediumPost, "categories">): Pillar {
+  const cats = post.categories.map((c) => c.toLowerCase())
+  for (const pillar of Object.keys(PILLAR_KEYWORDS) as Pillar[]) {
+    if (cats.some((c) => PILLAR_KEYWORDS[pillar].some((kw) => c.includes(kw)))) {
+      return pillar
+    }
+  }
+  return "operator"
+}
+
+export function pillarLabel(slug: Pillar): string {
+  return PILLARS.find((p) => p.slug === slug)?.label ?? slug
 }

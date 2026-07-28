@@ -6,14 +6,29 @@ import { Analytics } from "@vercel/analytics/next"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 
-// TODO(PR7): title/description are the old keyword-list copy the
-// redesign brief flags for removal. Rewritten with the new positioning
-// and OG images in PR7 — left untouched here to keep PR1 to foundation.
+const SITE_URL = "https://paulmandele.co"
+const DESCRIPTION =
+  "Venture-building strategist and innovation advisor helping corporates, investors, and development institutions build ventures that survive Africa's toughest market conditions. Author of Build for the Margins."
+
 export const metadata: Metadata = {
-  title: "Paul Mandele | Tech & Innovation Leader",
-  description:
-    "Tech & Innovation Leader specialized in Product Management, Venture Building, innovation, digital transformation, Big Data & Analytics",
-  generator: "v0.app",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Paul Mandele | Venture-Building Strategist & Innovation Advisor",
+    template: "%s | Paul Mandele",
+  },
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Paul Mandele",
+    title: "Paul Mandele | Venture-Building Strategist & Innovation Advisor",
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paul Mandele | Venture-Building Strategist & Innovation Advisor",
+    description: DESCRIPTION,
+  },
 }
 
 const sora = Sora({

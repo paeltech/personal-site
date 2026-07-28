@@ -1,7 +1,13 @@
+import type { Metadata } from "next"
 import { Container } from "@/components/primitives/container"
 import { Eyebrow } from "@/components/primitives/eyebrow"
 import { Button } from "@/components/primitives/button"
 import { ArrowLink } from "@/components/primitives/arrow-link"
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: false },
+}
 
 export default function NotFound() {
   return (

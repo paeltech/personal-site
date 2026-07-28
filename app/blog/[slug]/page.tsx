@@ -13,8 +13,20 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = posts.find((p) => p.slug === slug)
   if (!post) return {}
   return {
-    title: `${post.title} | Paul Mandele`,
+    title: post.title,
     description: post.description,
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.description,
+      images: post.thumbnail ? [{ url: post.thumbnail }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: post.thumbnail ? [post.thumbnail] : undefined,
+    },
   }
 }
 

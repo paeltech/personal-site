@@ -11,7 +11,7 @@ import { Button } from "@/components/primitives/button"
 // Not linked from nav. Remove once every page has shipped.
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
-  title: "Design System — internal",
+  title: { absolute: "Design System — internal" },
 }
 
 const swatches = [

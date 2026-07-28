@@ -5,7 +5,7 @@ import { ChaptersSection } from "@/components/book/chapters-section"
 import { Pricing } from "@/components/book/pricing"
 
 export const metadata: Metadata = {
-  title: "Build for the Margins | Paul Mandele",
+  title: "Build for the Margins",
   description:
     "A decade of building ventures for patchy connectivity, low trust, and irregular income, turned into a method other builders can use. Read three chapters free.",
 }

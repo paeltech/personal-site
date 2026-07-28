@@ -106,6 +106,12 @@
     outline: 2px solid var(--color-ink);
     outline-offset: 3px;
   }
+  /* An ink-coloured ring is invisible on ink-coloured backgrounds (the
+     footer, closing CTA). Anything focusable inside one flips to a
+     paper-coloured ring instead. */
+  :where(.bg-ink, .bg-ink-800) :focus-visible {
+    outline-color: var(--color-paper);
+  }
 }
 
 @layer components {

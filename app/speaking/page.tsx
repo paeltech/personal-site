@@ -4,7 +4,7 @@ import { SignatureTalks } from "@/components/speaking/signature-talks"
 import { Appearances } from "@/components/speaking/appearances"
 
 export const metadata: Metadata = {
-  title: "Speaking & Workshops | Paul Mandele",
+  title: "Speaking & Workshops",
   description:
     "Direct, evidence-led talks and workshops on constraint-driven design, trust-first go-to-market, and building without a playbook, drawn from named case studies.",
 }

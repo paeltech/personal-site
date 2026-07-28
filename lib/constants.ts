@@ -1,4 +1,5 @@
 export const SITE_NAME = "Paul Mandele"
+export const CONTACT_EMAIL = "business@paulmandele.co"
 
 /** Primary nav — About/How I Work resolve to homepage anchors from any route. */
 export const NAV_LINKS = [
@@ -37,7 +38,7 @@ export const FOOTER_LINKS = [
 // is now built for.
 export const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/paul-mandele/" },
-  { label: "Email", href: "mailto:business@paulmandele.co" },
+  { label: "Email", href: `mailto:${CONTACT_EMAIL}` },
   { label: "X", href: "https://x.com/Mandl_P" },
 ] as const
 

@@ -37,7 +37,7 @@ export async function fetchMediumPosts(username: string = MEDIUM_USERNAME): Prom
           .replace(/[^a-z0-9]+/g, "-")
           .replace(/(^-|-$)+/g, "") || `post-${index}`,
       description: item.description?.replace(/<[^>]*>/g, "").substring(0, 150) + "..." || "",
-      content: item.content || item.description || "",
+      content: stripTrackingPixel(item.content || item.description || ""),
       link: item.link,
       pubDate: item.pubDate,
       thumbnail: item.thumbnail || extractImageFromContent(item.content),
@@ -93,6 +93,13 @@ function getMockPosts(): MediumPost[] {
 function extractImageFromContent(content: string): string {
   const imgMatch = content?.match(/<img[^>]+src="([^">]+)"/)
   return imgMatch ? imgMatch[1] : "/blog-post-concept.png"
+}
+
+/** Medium's RSS feed appends a 1x1 view-tracking pixel to every item's
+ * content, pointed at medium.com's own analytics endpoint. Off Medium it
+ * just renders as a broken image, so strip it before it reaches the page. */
+function stripTrackingPixel(content: string): string {
+  return content.replace(/<img[^>]+src="https:\/\/medium\.com\/_\/stat\?[^"]*"[^>]*>/g, "")
 }
 
 /**

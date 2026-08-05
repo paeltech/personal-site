@@ -1,21 +1,24 @@
 "use client"
 
+import { useState } from "react"
 import { Container } from "@/components/primitives/container"
 import { Eyebrow } from "@/components/primitives/eyebrow"
 import { Button } from "@/components/primitives/button"
+import { PreorderDialog } from "@/components/book/preorder-dialog"
 import { useReveal } from "@/hooks/use-reveal"
 import { cn } from "@/lib/utils"
+import type { BookFormat } from "@/lib/preorder-schema"
 
 // TODO: swap for real retailer/checkout links once they exist (see
-// plan.md §10, "Assets needed from Paul"). A mailto expression-of-interest
-// is the honest interim mechanism — no storefront to send these to yet.
+// plan.md §10, "Assets needed from Paul"). The reserve-your-copy dialog is
+// the honest interim mechanism — no storefront to charge these to yet.
 const TIERS = [
   {
     name: "Ebook",
     price: "$24",
     body: "EPUB & PDF, DRM-free. Includes all three free chapters and lifetime updates.",
     cta: "Pre-order",
-    href: "mailto:business@paulmandele.co?subject=Pre-order%20%E2%80%94%20Build%20for%20the%20Margins%20(Ebook)",
+    format: "ebook" as BookFormat,
     featured: false,
   },
   {
@@ -23,7 +26,7 @@ const TIERS = [
     price: "$32",
     body: "288 pages, matte cover. Ships worldwide. Bundled with the ebook at no extra cost.",
     cta: "Pre-order",
-    href: "mailto:business@paulmandele.co?subject=Pre-order%20%E2%80%94%20Build%20for%20the%20Margins%20(Paperback)",
+    format: "paperback" as BookFormat,
     featured: true,
   },
   {
@@ -31,7 +34,7 @@ const TIERS = [
     price: "$28",
     body: "7h 40m, read by the author. The case studies, in the voice of the person who lived them.",
     cta: "Notify me",
-    href: "mailto:business@paulmandele.co?subject=Notify%20me%20%E2%80%94%20Build%20for%20the%20Margins%20(Audiobook)",
+    format: "audiobook" as BookFormat,
     featured: false,
   },
 ] as const
@@ -39,6 +42,7 @@ const TIERS = [
 export function Pricing() {
   const headRef = useReveal<HTMLDivElement>()
   const cardsRef = useReveal<HTMLDivElement>()
+  const [activeFormat, setActiveFormat] = useState<BookFormat | null>(null)
 
   return (
     <Container id="get-your-copy" className="mt-24 flex flex-col gap-12 pb-4 md:mt-28">
@@ -66,7 +70,7 @@ export function Pricing() {
             </span>
             <p className="text-small leading-[23px] text-muted-foreground">{tier.body}</p>
             <Button
-              href={tier.href}
+              onClick={() => setActiveFormat(tier.format)}
               size="sm"
               className={cn(
                 "mt-1.5 w-full",
@@ -82,6 +86,8 @@ export function Pricing() {
       <span className="text-small font-medium text-muted-foreground">
         Also available at Amazon, Apple Books, and Kobo on release.
       </span>
+
+      <PreorderDialog format={activeFormat} onClose={() => setActiveFormat(null)} />
     </Container>
   )
 }

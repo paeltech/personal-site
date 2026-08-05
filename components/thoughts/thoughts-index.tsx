@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState, type ReactNode } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/primitives/container"
 import { Eyebrow } from "@/components/primitives/eyebrow"
@@ -69,8 +70,18 @@ export function ThoughtsIndex({ posts }: { posts: MediumPost[] }) {
           <Container className="mt-14 flex flex-wrap items-center gap-16">
             <Link
               href={`/blog/${featured.slug}`}
-              className="aspect-[560/380] w-full max-w-[560px] flex-shrink-0 rounded-[10px] bg-linear-to-br from-ink-800 to-ink"
-            />
+              className="relative aspect-[560/380] w-full max-w-[560px] flex-shrink-0 overflow-hidden rounded-[10px] bg-linear-to-br from-ink-800 to-ink"
+            >
+              {featured.thumbnail && (
+                <Image
+                  src={featured.thumbnail}
+                  alt={featured.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
+            </Link>
             <div className="flex min-w-[320px] flex-1 flex-col gap-5">
               <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 {pillarLabel(featured.pillar)}

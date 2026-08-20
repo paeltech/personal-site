@@ -10,7 +10,7 @@ const OFFERS = [
   {
     index: "01",
     title: "Venture-Building & Market-Entry Advisory",
-    body: "I help corporates and investors design and validate ventures for constrained markets before a full budget cycle teaches them the hard way. Hands-on and retainer-based, built from a decade of doing it with my own capital on the line.",
+    body: "I help corporates and investors design and validate ventures for constrained markets before a full budget cycle teaches them the hard way. Hands-on via retainer, joint venture, or co-ownership across the venture lifecycle, built from a decade of doing it with my own capital on the line.",
   },
   {
     index: "02",

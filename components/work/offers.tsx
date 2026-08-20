@@ -1,7 +1,7 @@
 "use client"
 
 import { Container } from "@/components/primitives/container"
-import { ArrowLink } from "@/components/primitives/arrow-link"
+// import { ArrowLink } from "@/components/primitives/arrow-link"
 import { useReveal } from "@/hooks/use-reveal"
 import { SPEAKING_HREF } from "@/lib/constants"
 
@@ -9,7 +9,7 @@ const OFFERS = [
   {
     index: "01",
     title: "Venture-Building & Market-Entry Advisory",
-    format: "Monthly retainer, 3-month minimum",
+    format: "Monthly retainer, 3-month minimum. Joint venture & co-ownership options throughout the venture lifecycle",
     forWhom: "Corporates & investors entering Africa",
     body: "I help you design and validate ventures for constrained markets before a full budget cycle teaches you the hard way. Hands-on from thesis to first traction, built from a decade of doing it with my own capital on the line.",
     included: [
@@ -67,11 +67,11 @@ export function Offers() {
                   <strong className="font-semibold text-ink">For</strong> &nbsp; {offer.forWhom}
                 </span>
               </div>
-              {offer.link && (
+              {/* {offer.link && (
                 <ArrowLink href={offer.link} className="mt-1">
                   See speaking
                 </ArrowLink>
-              )}
+              )} */}
             </div>
 
             <div className="flex min-w-[320px] flex-1 flex-col gap-6.5">

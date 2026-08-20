@@ -5,10 +5,9 @@ import { useCountUp } from "@/hooks/use-count-up"
 import { cn } from "@/lib/utils"
 
 const STATS = [
-  { target: 100, prefix: "$", suffix: "K+", label: "Government contract closed,\nowned pilot to close" },
-  { target: 80, prefix: "$", suffix: "K", label: "US Embassy grant\nraised" },
-  { target: 57, prefix: "", suffix: "%", label: "B2B revenue growth\nacross three countries" },
-  { target: 40, prefix: "", suffix: "+", label: "Startups from one\ninnovation hub" },
+  { target: 13, prefix: "$", suffix: "m+", label: "government & DFI\ncontracts delivered" },
+  { target: 240, prefix: "$", suffix: "K+", label: "investments in\npersonal ventures" },
+  { target: 40, prefix: "", suffix: "+", label: "Startups groomed through\nventure building programs" },
 ] as const
 
 function Stat({ target, prefix, suffix, label, first }: (typeof STATS)[number] & { first?: boolean }) {

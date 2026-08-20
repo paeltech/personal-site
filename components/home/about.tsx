@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Container } from "@/components/primitives/container"
 import { Eyebrow } from "@/components/primitives/eyebrow"
 import { useReveal } from "@/hooks/use-reveal"
@@ -22,15 +23,15 @@ export function About() {
         </div>
 
         <div ref={bodyRef} className="reveal flex flex-col items-start gap-14 md:flex-row md:gap-20">
-          <div className="flex w-full flex-shrink-0 flex-col gap-3.5 md:w-[420px]">
-            <div className="flex aspect-[420/520] w-full flex-col justify-end rounded-lg bg-linear-to-br from-ink-800 to-ink p-6">
-              <span className="text-small font-medium leading-[22px] text-faint">
-                Documentary portrait.
-                <br />
-                Buni Hub, Dar es Salaam
-              </span>
-            </div>
-            <span className="text-small text-muted-foreground">Builder, not consultant in an office.</span>
+          <div className="relative aspect-[420/520] w-full flex-shrink-0 overflow-hidden rounded-lg bg-ink md:w-[420px]">
+            <Image
+              src="/images/paul-mandele.jpg"
+              alt="Paul Mandele at Buni Hub, Dar es Salaam"
+              fill
+              sizes="(min-width: 768px) 420px, 100vw"
+              className="object-cover"
+              priority
+            />
           </div>
 
           <div className="flex max-w-[600px] flex-col gap-7 pt-1">
